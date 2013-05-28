@@ -5,5 +5,6 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item android:id="@+id/item1" android:orderInCategory="1" android:title="Clear" android:onClick="onMenuClear" android:showAsAction="never"></item>
 
 </menu>
