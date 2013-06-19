@@ -38,13 +38,20 @@ public class MainActivity extends Activity implements LocationListener {
 		locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 		Criteria criteria = new Criteria();
 		provider = locationManager.getBestProvider(criteria, false);
-		
 		setTitle("GpsTrak - stopped");			
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		locationManager.requestLocationUpdates(provider, 0, 0, this);
+	}
+	
+	@Override
+	public void onPause()
+	{
+		super.onPause();
+		locationManager.removeUpdates(this);
 	}
 	
 	@Override
